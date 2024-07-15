@@ -1,44 +1,18 @@
-import re
-n = 2
-for  m in range(1, 10):
-    r = [n % m]
-    for i in range(1, m * 2):
-        r.append( (2 * r[-1]) % m)
-    if not 0 in r:
-        minr = min(r)
-        st = r.index(minr)
-        print (f'{m=}  {r}  {st=} {r[st+1:]}')    
-        r1 = r[st: st + 1 + r[st+1:].index(minr)]
-        re = ''.join([ '1' if x in r1 else '+' for x in range(max(r1) + 1)][::-1])
-        print (f'{m=}  {r}  {r1} {re}')    
-        
-    else:
-        print(f'{m=}  {r}  ')
+# https://www.codewars.com/kata/55fd2d567d94ac3bc9000064/train/python
+def row_sum_odd_numbers(n):
+    st = 1
+    for n in range(1,5):
+        print(f'{n=}  {2*n*(2*(n-1))//2}')
+print(row_sum_odd_numbers("3"))
+# 0 2 4 6   8  10
+#   2 6 12 20  30
 '''
-2  1    4   2   1   4    2   
-6  5    4   3   2   1    0
-                1   1    1  
-            1   1   1    0
-        1   0   1   0    1
-        1   1   1   0    0
-   1    0   0   0   1    1
-   1    0   1   0   1    0
-   1    1   0   0   0    1
-   1    1   1   0   0    0
-   1    1   1   1   1    1
-1  0    0   0   1   1    0
-
-4  2  1  3  4  2
-         1  0  1
-      1  0  1  0
-      1  1  1  1
-   1  0  1  0  0
-   1  1  0  0  1
-   1  1  1  1  0
-1  0  0  0  1  1
-1  0  1  0  0  0
-1  0  1  1  0  1
-1  1  0  0  1  0
+                     1
+                  3     5
+               7     9    11
+           13    15    17    19
+        21    23    25    27    29
+    31
 
 
 '''
